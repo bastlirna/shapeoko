@@ -2,7 +2,7 @@
   system.h - Header for system level commands and real-time processes
   Part of Grbl
 
-  Copyright (c) 2014-2015 Sungeun K. Jeon  
+  Copyright (c) 2014-2015 Sungeun K. Jeon
 
   Grbl is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -23,10 +23,10 @@
 
 #include "grbl.h"
 
-// Define system executor bit map. Used internally by realtime protocol as realtime command flags, 
+// Define system executor bit map. Used internally by realtime protocol as realtime command flags,
 // which notifies the main program to execute the specified realtime command asynchronously.
 // NOTE: The system executor uses an unsigned 8-bit volatile variable (8 flag limit.) The default
-// flags are always false, so the realtime protocol only needs to check for a non-zero value to 
+// flags are always false, so the realtime protocol only needs to check for a non-zero value to
 // know when there is a realtime command to execute.
 #define EXEC_STATUS_REPORT  bit(0) // bitmask 00000001
 #define EXEC_CYCLE_START    bit(1) // bitmask 00000010
@@ -57,7 +57,7 @@
 #define STATE_CYCLE         bit(3) // Cycle is running or motions are being executed.
 #define STATE_HOLD          bit(4) // Active feed hold
 #define STATE_SAFETY_DOOR   bit(5) // Safety door is ajar. Feed holds and de-energizes system.
-#define STATE_MOTION_CANCEL bit(6) // Motion cancel by feed hold and return to idle. 
+#define STATE_MOTION_CANCEL bit(6) // Motion cancel by feed hold and return to idle.
 
 // Define system suspend states.
 #define SUSPEND_DISABLE       0      // Must be zero.
@@ -73,9 +73,9 @@ typedef struct {
   uint8_t state;                 // Tracks the current state of Grbl.
   uint8_t suspend;               // System suspend bitflag variable that manages holds, cancels, and safety door.
   uint8_t soft_limit;            // Tracks soft limit errors for the state machine. (boolean)
-  
-  int32_t position[N_AXIS];      // Real-time machine (aka home) position vector in steps. 
-                                 // NOTE: This may need to be a volatile variable, if problems arise.                             
+
+  int32_t position[N_AXIS];      // Real-time machine (aka home) position vector in steps.
+                                 // NOTE: This may need to be a volatile variable, if problems arise.
 
   int32_t probe_position[N_AXIS]; // Last probe position in machine coordinates and steps.
   uint8_t probe_succeeded;        // Tracks if last probing cycle was successful.
@@ -105,6 +105,8 @@ float system_convert_axis_steps_to_mpos(int32_t *steps, uint8_t idx);
 
 // Updates a machine 'position' array based on the 'step' array sent.
 void system_convert_array_steps_to_mpos(float *position, int32_t *steps);
+
+void system_pc_isr();
 
 // CoreXY calculation only. Returns x or y-axis "steps" based on CoreXY motor steps.
 #ifdef COREXY
