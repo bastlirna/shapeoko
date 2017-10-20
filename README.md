@@ -1,4 +1,4 @@
-![GitHub Logo](/doc/media/Grbl Logo 250px.png)
+![GitHub Logo](https://github.com/gnea/gnea-Media/blob/master/Grbl%20Logo/Grbl%20Logo%20250px.png?raw=true)
 ***
 
 ### Grbl v1.1 has been released [here](https://github.com/gnea/grbl/releases)!
@@ -25,7 +25,7 @@ Grbl includes full acceleration management with look ahead. That means the contr
 ***
 
 ### Official Supporters of the Grbl CNC Project
-![Official Supporters](https://dl.dropboxusercontent.com/u/2221997/Contributors.png)
+![Official Supporters](https://github.com/gnea/gnea-Media/blob/master/Contributors.png?raw=true)
 
 ***
 
@@ -49,12 +49,12 @@ _**Archives:**_
 
 ***
 
-##Update Summary for v0.9j
+## Update Summary for v0.9j
   - **Restore EEPROM feature:** A new set of restore EEPROM features to help OEMs and users reset their Grbl installation to the build defaults. See Configuring Grbl Wiki for details.
   - **More configuration options for input pins**
   - **Bug fixes including:** Soft limit error handling, disable spindle when S0, g-code reporting of G38.x.
   
-##Update Summary for v0.9i
+## Update Summary for v0.9i
   - **IMPORTANT:**
     - **Homing cycle updated. Locates based on trigger point, rather than release point.**
     - **System tweaks: $14 cycle auto-start has been removed. No more QUEUE state.**
@@ -64,7 +64,7 @@ _**Archives:**_
   - **Full Limit and Control Pin Configurability**
   - **Additional Compile-Time Feature Options**
 
-##Update Summary for v0.9h from v0.8
+## Update Summary for v0.9h from v0.8
   - **IMPORTANT:**
     - **Default serial baudrate is now 115200! (Up from 9600)**
     - **Z-limit(D12) and spindle enable(D11) pins have switched to support variable spindle!**
